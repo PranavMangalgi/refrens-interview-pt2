@@ -34,11 +34,6 @@ const timers = {};
 const timerPostDelay = 5000;
 // timers used to store timer refrences
 
-posts.forEach((post) => {
-  postCount[post.textContent] = 0;
-  timers[post.textContent] = null;
-});
-
 const options = {
   root: null,
   rootMargin: "0px",
@@ -72,5 +67,7 @@ const observer = new IntersectionObserver((entries) => {
 }, options);
 
 posts.forEach((post) => {
+  postCount[post.textContent] = 0;
+  timers[post.textContent] = null;
   observer.observe(post);
 });
